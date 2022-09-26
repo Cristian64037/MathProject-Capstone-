@@ -40,36 +40,46 @@ namespace MathProject_Capstone_
             listOfFights.Add(travInfo.itineraries);
             
         }
-        foreach (Itineraries its in listOfFights)
+        List<string> csvFlights=new List<string>();
+        //Append Table infor
+        csvFlights.Add(new String("Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)"));
+        appendNewFlights(csvFlights,listOfFights);
+
+
+
+
+
+
+          
+        
+        }
+
+        private static void appendNewFlights(List<string> csvFlights, List<Itineraries> listOfFights)
+        {
+            foreach (Itineraries its in listOfFights)
         {
             foreach (Bucket bkt in its.buckets)
             {
                 string flightId=bkt.id.ToString();
-                //System.Console.WriteLine(bkt.id.ToString());
                 foreach (Item flight in bkt.items)
                 {
                     string price=flight.price.formatted.ToString();
                     foreach (Leg flightInfo in flight.legs)
                     {
-                        string stopCount= flightInfo.stopCount.ToString();
-                        //String[] toks= flightInfo.departure.ToString().Split("\t");
-                        string departureDate=flightInfo.departure.ToString();
-                        //string departureTime=toks[1];
-                        System.Console.WriteLine(flightInfo.departure.ToString());
-                       // String[] toks2= flightInfo.arrival.Split("\t");
+                        string stopCount= flightInfo.stopCount.ToString();                       
+                        string departureDate=flightInfo.departure.ToString();    
+                        System.Console.WriteLine(flightInfo.departure.ToString());                      
                         string arrival=flightInfo.arrival.ToString();
-                        //string arrivalTime=toks2[1];
-                       // System.Console.WriteLine(toks2);
                         string flightTime=flightInfo.durationInMinutes.ToString();
                         string airlineNames= "";
                         foreach (Marketing airline in flightInfo.carriers.marketing)
                         {
                             airlineNames+=airline.name.ToString();
                             airlineNames+=";";
-                        } 
-                        System.Console.WriteLine("Flight Bucket:{0} Flight Id:{7} Price:{1} StopCount:{2} departue date:{3} Arrival DatL{4} Flight Time:{5} Airline(s):{6}",
-                                flightId,price,stopCount,departureDate,arrival,flightTime,airlineNames,flight.id.ToString());
-                       
+                        }
+                        string[] flightValue=new string[]{flightId,price,stopCount,departureDate,arrival,flightTime,airlineNames,flight.id.ToString()};
+                        string csvString= string.Join(",",flightValue); 
+                       csvFlights.Add(csvString);                  
                     }
                 }
             
@@ -77,11 +87,7 @@ namespace MathProject_Capstone_
             
             
         }
-          
-        
         }
-
-       
     }
     public class Price
     {
