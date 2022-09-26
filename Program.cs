@@ -1,10 +1,13 @@
 ﻿using System;
 
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using CsvHelper;
+using System.Globalization;
 
 namespace MathProject_Capstone_
 {
@@ -33,17 +36,21 @@ namespace MathProject_Capstone_
         {
 	        response.EnsureSuccessStatusCode();
 	        string body =  response.Content.ReadAsStringAsync().Result;
-	        //Console.WriteLine(body);
-            TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString()); 
-            //istOfFights.Add(travInfo);
-            //System.Console.WriteLine(travInfo.itineraries.buckets.ToString()); 
+            TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString());  
             listOfFights.Add(travInfo.itineraries);
             
         }
+
+
         List<string> csvFlights=new List<string>();
         //Append Table infor
-        csvFlights.Add(new String("Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)"));
+        string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)";
+        csvFlights.Add(beginnerdata);
+        
         appendNewFlights(csvFlights,listOfFights);
+        writeOutToCSV(csvFlights);
+        
+
 
 
 
@@ -52,6 +59,16 @@ namespace MathProject_Capstone_
 
           
         
+        }
+
+        private static void writeOutToCSV(List<string> csvFlights)
+        {
+            TextWriter tw = new StreamWriter("SavedFlights.csv");
+            foreach (String s in csvFlights)
+            {
+                tw.WriteLine(s.ToString());
+            }
+            tw.Close();
         }
 
         private static void appendNewFlights(List<string> csvFlights, List<Itineraries> listOfFights)
@@ -67,8 +84,7 @@ namespace MathProject_Capstone_
                     foreach (Leg flightInfo in flight.legs)
                     {
                         string stopCount= flightInfo.stopCount.ToString();                       
-                        string departureDate=flightInfo.departure.ToString();    
-                        System.Console.WriteLine(flightInfo.departure.ToString());                      
+                        string departureDate=flightInfo.departure.ToString();                       
                         string arrival=flightInfo.arrival.ToString();
                         string flightTime=flightInfo.durationInMinutes.ToString();
                         string airlineNames= "";
