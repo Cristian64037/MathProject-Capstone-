@@ -14,3 +14,5 @@ obj/Debug/net5.0/MathProject-Capstone-.csproj.FileListAbsolute.txt
 
 obj/Debug/net5.0/MathProject-Capstone-.AssemblyInfo.cs
 obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+
+.fake
