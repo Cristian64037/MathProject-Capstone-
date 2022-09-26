@@ -4,3 +4,4 @@
 *.xml
 *.cache
 *.targets
+*.csproj
