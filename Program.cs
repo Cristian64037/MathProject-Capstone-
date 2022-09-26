@@ -19,26 +19,18 @@ namespace MathProject_Capstone_
         {
             List<Itineraries> listOfFights= new List<Itineraries>();
             ApiKeys apiKeys= new ApiKeys();
-            string fileName="flightsNeeded.txt";
+            string fileName="/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded.txt";
             FileIO fileIO= new FileIO(fileName);
             string[] data=fileIO.readDataInToStringList();
             List<FlightInformation> flightInformation=storeTheData(data);
             List<string> csvFlights=new List<string>();
-            string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)";
+            string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity";
             csvFlights.Add(beginnerdata);
             await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
         
             appendNewFlights(csvFlights,listOfFights);
             writeOutToCSV(csvFlights);
         
-
-
-
-
-
-
-
-          
         
         }
 
@@ -46,7 +38,8 @@ namespace MathProject_Capstone_
         {
             foreach (FlightInformation flight in flightInformation)
             {
-                string url=String.Format("https://skyscanner44.p.rapidapi.com/search?adults=1&origin={0}&destination={1}&departureDate={2}1&currency=USD",flight.departureCity,flight.arrivalCity,flight.date);
+                string url=String.Format("https://skyscanner44.p.rapidapi.com/search?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.departureCity,flight.arrivalCity,flight.date);
+                
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
             {
@@ -64,6 +57,7 @@ namespace MathProject_Capstone_
 	            string body =  response.Content.ReadAsStringAsync().Result;
                 TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString());  
                 listOfFights.Add(travInfo.itineraries);
+                //System.Console.WriteLine(body);
             
             }
             }
@@ -82,7 +76,7 @@ namespace MathProject_Capstone_
 
         private static void writeOutToCSV(List<string> csvFlights)
         {
-            TextWriter tw = new StreamWriter("SavedFlights.csv");
+            TextWriter tw = new StreamWriter("SavedFlights7.csv");
             foreach (String s in csvFlights)
             {
                 tw.WriteLine(s.ToString());
@@ -112,9 +106,10 @@ namespace MathProject_Capstone_
                             airlineNames+=airline.name.ToString();
                             airlineNames+=";";
                         }
-                        string[] flightValue=new string[]{flightId,price,stopCount,departureDate,arrival,flightTime,airlineNames,flight.id.ToString()};
+                        string[] flightValue=new string[]{flightId,flight.id.ToString(),price,stopCount,departureDate,arrival,flightTime,airlineNames,flightInfo.origin.city.ToString(),flightInfo.destination.city.ToString()};
                         string csvString= string.Join(",",flightValue); 
-                       csvFlights.Add(csvString);                  
+                        System.Console.WriteLine("\n{0}",csvString);
+                        csvFlights.Add(csvString);                  
                     }
                 }
             
