@@ -14,41 +14,22 @@ namespace MathProject_Capstone_
     class Program
     {
         
+        
         static async Task Main(string[] args)
         {
             List<Itineraries> listOfFights= new List<Itineraries>();
             ApiKeys apiKeys= new ApiKeys();
-            
-
-           
-            var client = new HttpClient();
-            var request = new HttpRequestMessage
-        {
-	        Method = HttpMethod.Get,
-	        RequestUri = new Uri("https://skyscanner44.p.rapidapi.com/search?adults=1&origin=ORD&destination=PHX&departureDate=2022-10-11&currency=USD"),
-	        Headers =
-	        {
-		        { "X-RapidAPI-Key", apiKeys.key.ToString() },
-		        { "X-RapidAPI-Host", apiKeys.Host.ToString() },
-	        },
-        };
-        using (var response = await client.SendAsync(request))
-        {
-	        response.EnsureSuccessStatusCode();
-	        string body =  response.Content.ReadAsStringAsync().Result;
-            TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString());  
-            listOfFights.Add(travInfo.itineraries);
-            
-        }
-
-
-        List<string> csvFlights=new List<string>();
-        //Append Table infor
-        string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)";
-        csvFlights.Add(beginnerdata);
+            string fileName="flightsNeeded.txt";
+            FileIO fileIO= new FileIO(fileName);
+            string[] data=fileIO.readDataInToStringList();
+            List<FlightInformation> flightInformation=storeTheData(data);
+            List<string> csvFlights=new List<string>();
+            string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,Flight0Time,Airline(s)";
+            csvFlights.Add(beginnerdata);
+            await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
         
-        appendNewFlights(csvFlights,listOfFights);
-        writeOutToCSV(csvFlights);
+            appendNewFlights(csvFlights,listOfFights);
+            writeOutToCSV(csvFlights);
         
 
 
@@ -59,6 +40,44 @@ namespace MathProject_Capstone_
 
           
         
+        }
+
+        private static async Task makeApiCallsAsync(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
+        {
+            foreach (FlightInformation flight in flightInformation)
+            {
+                string url=String.Format("https://skyscanner44.p.rapidapi.com/search?adults=1&origin={0}&destination={1}&departureDate={2}1&currency=USD",flight.departureCity,flight.arrivalCity,flight.date);
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+            {
+	            Method = HttpMethod.Get,
+	            RequestUri = new Uri(url),
+	            Headers =
+	            {
+		            { "X-RapidAPI-Key", apiKeys.key.ToString() },
+		            { "X-RapidAPI-Host", apiKeys.Host.ToString() },
+	            },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+	            response.EnsureSuccessStatusCode();
+	            string body =  response.Content.ReadAsStringAsync().Result;
+                TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString());  
+                listOfFights.Add(travInfo.itineraries);
+            
+            }
+            }
+        }
+
+        private static List<FlightInformation> storeTheData(string[] data)
+        {
+            List<FlightInformation> flightInformation= new List<FlightInformation>();
+            foreach (string item in data)
+            {
+                string[]toks=item.Split(",");
+                flightInformation.Add(new FlightInformation(toks[0],toks[1],toks[2]));    
+            }
+            return flightInformation;
         }
 
         private static void writeOutToCSV(List<string> csvFlights)
