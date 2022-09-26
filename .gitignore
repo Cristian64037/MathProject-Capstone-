@@ -6,3 +6,4 @@
 *.targets
 *.csproj
 *.json
+*.props
