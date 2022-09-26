@@ -67,6 +67,8 @@ namespace MathProject_Capstone_
                             airlineNames+=airline.name.ToString();
                             airlineNames+=";";
                         } 
+                        System.Console.WriteLine("Flight Bucket:{0} Flight Id:{7} Price:{1} StopCount:{2} departue date:{3} Arrival DatL{4} Flight Time:{5} Airline(s):{6}",
+                                flightId,price,stopCount,departureDate,arrival,flightTime,airlineNames,flight.id.ToString());
                        
                     }
                 }
