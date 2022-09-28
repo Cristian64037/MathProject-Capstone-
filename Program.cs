@@ -76,7 +76,7 @@ namespace MathProject_Capstone_
 
         private static void writeOutToCSV(List<string> csvFlights)
         {
-            TextWriter tw = new StreamWriter("SavedFlights7.csv");
+            TextWriter tw = new StreamWriter("SavedFlights8.csv");
             foreach (String s in csvFlights)
             {
                 tw.WriteLine(s.ToString());
