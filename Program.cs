@@ -17,6 +17,10 @@ namespace MathProject_Capstone_
         
         static async Task Main(string[] args)
         {
+            //DateTime today= new DateTime();
+            System.Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
+            
+            System.Console.WriteLine(DateTime.Now.AddDays(1).ToString("MM/dd/yyyy"));
             List<Itineraries> listOfFights= new List<Itineraries>();
             ApiKeys apiKeys= new ApiKeys();
             string fileName="/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded.txt";
@@ -24,7 +28,7 @@ namespace MathProject_Capstone_
             string[] data=fileIO.readDataInToStringList();
             List<FlightInformation> flightInformation=storeTheData(data);
             List<string> csvFlights=new List<string>();
-            string beginnerdata="Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity";
+            string beginnerdata="FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity";
             csvFlights.Add(beginnerdata);
             await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
         
@@ -38,7 +42,8 @@ namespace MathProject_Capstone_
         {
             foreach (FlightInformation flight in flightInformation)
             {
-                string url=String.Format("https://skyscanner44.p.rapidapi.com/search?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.departureCity,flight.arrivalCity,flight.date);
+                
+                string url=String.Format("https://skyscanner44.p.rapidapi.com/search-extended?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.departureCity,flight.arrivalCity,flight.date);
                 
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
@@ -55,8 +60,10 @@ namespace MathProject_Capstone_
             {
 	            response.EnsureSuccessStatusCode();
 	            string body =  response.Content.ReadAsStringAsync().Result;
-                TrravelData travInfo = JsonConvert.DeserializeObject<TrravelData>(body.ToString());  
+                TravvelData travInfo = JsonConvert.DeserializeObject<TravvelData>(body.ToString()); 
+                //System.Console.WriteLine("hi:{0}",travInfo); 
                 listOfFights.Add(travInfo.itineraries);
+               //System.Console.WriteLine("Number of results:{0}", travInfo.itineraries.results);
                 //System.Console.WriteLine(body);
             
             }
@@ -86,74 +93,77 @@ namespace MathProject_Capstone_
 
         private static void appendNewFlights(List<string> csvFlights, List<Itineraries> listOfFights)
         {
-            foreach (Itineraries its in listOfFights)
-        {
-            foreach (Bucket bkt in its.buckets)
+           // System.Console.WriteLine(listOfFights.Count);
+            
+            
+            foreach (Itineraries itineary in listOfFights)
             {
-                string flightId=bkt.id.ToString();
-                foreach (Item flight in bkt.items)
+                //System.Console.WriteLine("Hello:{0}",itineary);
+                //System.Console.WriteLine();
+                //System.Console.WriteLine("Number of ititnearies is:{0}",itineary.results.Count);
+                
+                
+                foreach (Result flight in itineary.results)
+            {
+                string flightId=flight.id.ToString();
+                double priceCost=0;
+                
+                foreach (PricingOption flightCost in flight.pricing_options)
                 {
-                    string price=flight.price.formatted.ToString();
-                    foreach (Leg flightInfo in flight.legs)
-                    {
-                        string stopCount= flightInfo.stopCount.ToString();                       
-                        string departureDate=flightInfo.departure.ToString();                       
-                        string arrival=flightInfo.arrival.ToString();
-                        string flightTime=flightInfo.durationInMinutes.ToString();
-                        string airlineNames= "";
-                        foreach (Marketing airline in flightInfo.carriers.marketing)
-                        {
-                            airlineNames+=airline.name.ToString();
-                            airlineNames+=";";
-                        }
-                        string[] flightValue=new string[]{flightId,flight.id.ToString(),price,stopCount,departureDate,arrival,flightTime,airlineNames,flightInfo.origin.city.ToString(),flightInfo.destination.city.ToString()};
-                        string csvString= string.Join(",",flightValue); 
-                        System.Console.WriteLine("\n{0}",csvString);
-                        csvFlights.Add(csvString);                  
-                    }
+                        double amount = flightCost.price.amount;
+                        priceCost+= amount;
+                    
                 }
-            
+                
+                foreach (Leg infomation in flight.legs)
+                {
+                   
+                    //FlightId   ,Price  ,StopCount  ,Departue  ,Arrival  ,FlightTime  ,Airline(s)  ,DepartureCity,ArrivalCity
+                    string stopCount=infomation.stopCount.ToString();
+                    string departureDate=infomation.departure.ToString();
+                    string arrivalDate=infomation.arrival.ToString();
+                    string flightTime=infomation.durationInMinutes.ToString();
+                    string airlineNames="";
+                    Carriers s=infomation.carriers;
+                    
+                    foreach(Marketing airline in s.marketing)
+                    {
+                        airlineNames+=",";
+                        airlineNames+=airline.name;
+                        
+                    }
+                    string origin=infomation.origin.name.ToString();
+                    string destination=infomation.destination.name.ToString();
+                    string[] flightValue=new string[]{flightId,priceCost.ToString(),stopCount,departureDate,arrivalDate,flightTime,airlineNames,origin,destination};
+                    string csvString= string.Join(",",flightValue); 
+                    //System.Console.WriteLine("\n{0}",csvString);
+                    csvFlights.Add(csvString); 
+                }
+                
             }
+        
             
             
         }
         }
-    }
-    public class Price
-    {
-        public int raw { get; set; }
-        public string formatted { get; set; }
-    }
-
+    
     public class Origin
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string displayCode { get; set; }
-        public string city { get; set; }
-        public bool isHighlighted { get; set; }
     }
 
     public class Destination
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string displayCode { get; set; }
-        public string city { get; set; }
-        public bool isHighlighted { get; set; }
     }
 
     public class Marketing
     {
         public int id { get; set; }
-        public string logoUrl { get; set; }
-        public string name { get; set; }
-    }
-
-    public class Operating
-    {
-        public int id { get; set; }
-        public string logoUrl { get; set; }
         public string name { get; set; }
     }
 
@@ -161,14 +171,13 @@ namespace MathProject_Capstone_
     {
         public IList<Marketing> marketing { get; set; }
         public string operationType { get; set; }
-        public IList<Operating> operating { get; set; }
     }
 
     public class MarketingCarrier
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string alternateId { get; set; }
+        public string alternate_di { get; set; }
         public int allianceId { get; set; }
     }
 
@@ -176,7 +185,7 @@ namespace MathProject_Capstone_
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string alternateId { get; set; }
+        public string alternate_di { get; set; }
         public int allianceId { get; set; }
     }
 
@@ -208,47 +217,67 @@ namespace MathProject_Capstone_
         public IList<Segment> segments { get; set; }
     }
 
-    public class Eco
+    public class RatingBreakdown
     {
-        public double ecoContenderDelta { get; set; }
+        public double reliable_prices { get; set; }
+        public double clear_extra_fees { get; set; }
+        public double customer_service { get; set; }
+        public double ease_of_booking { get; set; }
+        public double other { get; set; }
     }
 
-    public class Item
-    {
-        public string id { get; set; }
-        public Price price { get; set; }
-        public IList<Leg> legs { get; set; }
-        public bool isSelfTransfer { get; set; }
-        public Eco eco { get; set; }
-        public bool isMashUp { get; set; }
-        public bool hasFlexibleOptions { get; set; }
-        public double score { get; set; }
-        public string deeplink { get; set; }
-        public IList<string> tags { get; set; }
-    }
-
-    public class Bucket
+    public class Agent
     {
         public string id { get; set; }
         public string name { get; set; }
-        public IList<Item> items { get; set; }
+        public bool is_carrier { get; set; }
+        public string update_status { get; set; }
+        public bool optimised_for_mobile { get; set; }
+        public bool live_update_allowed { get; set; }
+        public string rating_status { get; set; }
+        public double rating { get; set; }
+        public int feedback_count { get; set; }
+        public RatingBreakdown rating_breakdown { get; set; }
+    }
+
+    public class Price
+    {
+        public double amount { get; set; }
+        public string update_status { get; set; }
+        public object last_updated  { get; set; }
+        public int quote_age { get; set; }
+    }
+
+    public class PricingOption
+    {
+        public IList<Agent> agents { get; set; }
+        public Price price { get; set; }
+        public string url { get; set; }
+    }
+
+    public class Result
+    {
+        public string id { get; set; }
+        public IList<Leg> legs { get; set; }
+        public IList<PricingOption> pricing_options { get; set; }
+        public string deeplink { get; set; }
     }
 
     public class Itineraries
     {
-        public IList<Bucket> buckets { get; set; }
+        public IList<Result> results { get; set; }
     }
 
     public class Context
     {
         public string status { get; set; }
         public string sessionId { get; set; }
-        public int totalResults { get; set; }
     }
 
-    public class TrravelData
+    public class TravvelData
     {
         public Itineraries itineraries { get; set; }
         public Context context { get; set; }
-    
-}}
+    }
+    }
+}
