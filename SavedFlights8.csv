@@ -1,13 +1,222 @@
-Flight Bucket,FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity
-Best,15062-2211051930--31825-0-13416-2211052207,$65,0,11/5/2022 7:30:00 PM,11/5/2022 10:07:00 PM,277,Spirit Airlines;,Chicago,Los Angeles
-Best,15062-2211052059--31825-0-13416-2211052339,$65,0,11/5/2022 8:59:00 PM,11/5/2022 11:39:00 PM,280,Spirit Airlines;,Chicago,Los Angeles
-Best,15062-2211051545--32544-0-13416-2211051812,$88,0,11/5/2022 3:45:00 PM,11/5/2022 6:12:00 PM,267,Austrian Airlines;,Chicago,Los Angeles
-Fastest,15062-2211050640--32573-0-13416-2211050906,$166,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,American Airlines;,Chicago,Los Angeles
-Fastest,15062-2211050640--32317-0-13416-2211050906,$163,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,Finnair;,Chicago,Los Angeles
-Fastest,15062-2211050640--32184-0-13416-2211050906,$166,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,Japan Airlines;,Chicago,Los Angeles
-Cheapest,15062-2211052059--31825-0-13416-2211052339,$65,0,11/5/2022 8:59:00 PM,11/5/2022 11:39:00 PM,280,Spirit Airlines;,Chicago,Los Angeles
-Cheapest,15062-2211051930--31825-0-13416-2211052207,$65,0,11/5/2022 7:30:00 PM,11/5/2022 10:07:00 PM,277,Spirit Airlines;,Chicago,Los Angeles
-Cheapest,15062-2211050545--31825-1-13416-2211050945,$80,1,11/5/2022 5:45:00 AM,11/5/2022 9:45:00 AM,360,Spirit Airlines;,Chicago,Los Angeles
-Direct,15062-2211051930--31825-0-13416-2211052207,$65,0,11/5/2022 7:30:00 PM,11/5/2022 10:07:00 PM,277,Spirit Airlines;,Chicago,Los Angeles
-Direct,15062-2211052059--31825-0-13416-2211052339,$65,0,11/5/2022 8:59:00 PM,11/5/2022 11:39:00 PM,280,Spirit Airlines;,Chicago,Los Angeles
-Direct,15062-2211051545--32544-0-13416-2211051812,$88,0,11/5/2022 3:45:00 PM,11/5/2022 6:12:00 PM,267,Austrian Airlines;,Chicago,Los Angeles
+FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity
+15062-2211051405--32646-1-13416-2211052031,108.4,1,11/5/2022 2:05:00 PM,11/5/2022 8:31:00 PM,506,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050715--31722-1-13416-2211051306,147.65,1,11/5/2022 7:15:00 AM,11/5/2022 1:06:00 PM,471,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051303--31722-1-13416-2211051725,461.64,1,11/5/2022 1:03:00 PM,11/5/2022 5:25:00 PM,382,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051313--32573-0-13416-2211051555,168.39,0,11/5/2022 1:13:00 PM,11/5/2022 3:55:00 PM,282,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050819--32184-0-13416-2211051049,158.19,0,11/5/2022 8:19:00 AM,11/5/2022 10:49:00 AM,270,,Japan Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050640--32573-0-13416-2211050906,168.39,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051808--31722-0-13416-2211052048,138.65,0,11/5/2022 6:08:00 PM,11/5/2022 8:48:00 PM,280,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051426--31694,-32540-1-13416-2211052018,108.4,1,11/5/2022 2:26:00 PM,11/5/2022 8:18:00 PM,472,,Virgin Australia,Avianca,Chicago O'Hare International,Los Angeles International
+15062-2211051246--32646-0-13416-2211051519,186.6,0,11/5/2022 12:46:00 PM,11/5/2022 3:19:00 PM,273,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051245--31722-1-13416-2211051743,203.64,1,11/5/2022 12:45:00 PM,11/5/2022 5:43:00 PM,418,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051212--31722-1-13416-2211052013,286.55,1,11/5/2022 12:12:00 PM,11/5/2022 8:13:00 PM,601,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050655--31722,-32593-1-13416-2211051300,1432.11,1,11/5/2022 6:55:00 AM,11/5/2022 1:00:00 PM,485,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051036--31722,-32593-1-13416-2211051743,1432.11,1,11/5/2022 10:36:00 AM,11/5/2022 5:43:00 PM,547,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050855--31722,-32593-1-13416-2211051525,1299.49,1,11/5/2022 8:55:00 AM,11/5/2022 3:25:00 PM,510,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050945--31697,-32128-1-13416-2211052054,302.81,1,11/5/2022 9:45:00 AM,11/5/2022 8:54:00 PM,789,,Virgin Atlantic,Korean Air,Chicago O'Hare International,Los Angeles International
+15062-2211051957--31722-0-13416-2211052233,108.64,0,11/5/2022 7:57:00 PM,11/5/2022 10:33:00 PM,276,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051405--32646,-32331-1-13416-2211052155,108.4,1,11/5/2022 2:05:00 PM,11/5/2022 9:55:00 PM,590,,Air New Zealand,EVA Air,Chicago O'Hare International,Los Angeles International
+15062-2211051355--31722-1-13416-2211052150,286.55,1,11/5/2022 1:55:00 PM,11/5/2022 9:50:00 PM,595,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050715--31722,-32593-2-13416-2211051525,497.33,2,11/5/2022 7:15:00 AM,11/5/2022 3:25:00 PM,610,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051250--32385-1-13416-2211051749,168.6,1,11/5/2022 12:50:00 PM,11/5/2022 5:49:00 PM,419,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211050949--31697,-32677-1-13416-2211051749,170,1,11/5/2022 9:49:00 AM,11/5/2022 5:49:00 PM,600,,Virgin Atlantic,Air France,Chicago O'Hare International,Los Angeles International
+15062-2211050952--32480-0-13416-2211051231,167.82,0,11/5/2022 9:52:00 AM,11/5/2022 12:31:00 PM,279,,British Airways,Chicago O'Hare International,Los Angeles International
+15062-2211051550--32695,-32646-1-13416-2211052049,88.96,1,11/5/2022 3:50:00 PM,11/5/2022 8:49:00 PM,419,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051400--31940-0-13416-2211051639,326.01,0,11/5/2022 2:00:00 PM,11/5/2022 4:39:00 PM,279,,Qantas,Chicago O'Hare International,Los Angeles International
+15062-2211050545--31722-1-13416-2211051144,286.55,1,11/5/2022 5:45:00 AM,11/5/2022 11:44:00 AM,479,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050945--32385-1-13416-2211051615,209.6,1,11/5/2022 9:45:00 AM,11/5/2022 4:15:00 PM,510,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211050850--32695,-32646-1-13416-2211051713,209.94,1,11/5/2022 8:50:00 AM,11/5/2022 5:13:00 PM,623,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050856--31722-1-13416-2211051738,286.55,1,11/5/2022 8:56:00 AM,11/5/2022 5:38:00 PM,642,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051245--31722-1-13416-2211051833,117.64,1,11/5/2022 12:45:00 PM,11/5/2022 6:33:00 PM,468,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050545--31825-1-13416-2211050945,1006.7199999999999,1,11/5/2022 5:45:00 AM,11/5/2022 9:45:00 AM,360,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051205--32573-1-13416-2211051719,177.54,1,11/5/2022 12:05:00 PM,11/5/2022 5:19:00 PM,434,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051315--32593-2-13416-2211060025,807.8600000000001,2,11/5/2022 1:15:00 PM,11/6/2022 12:25:00 AM,790,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051405--31722-1-13416-2211052031,117.64,1,11/5/2022 2:05:00 PM,11/5/2022 8:31:00 PM,506,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051246--31722-0-13416-2211051519,194.64,0,11/5/2022 12:46:00 PM,11/5/2022 3:19:00 PM,273,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051246--32695-0-13416-2211051519,197.56,0,11/5/2022 12:46:00 PM,11/5/2022 3:19:00 PM,273,,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211052121--32090-0-13416-2211052359,110.36,0,11/5/2022 9:21:00 PM,11/5/2022 11:59:00 PM,278,,Lufthansa,Chicago O'Hare International,Los Angeles International
+15062-2211051545--32695,-32646-1-13416-2211052128,108.4,1,11/5/2022 3:45:00 PM,11/5/2022 9:28:00 PM,463,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050930--31722-0-13416-2211051157,138.65,0,11/5/2022 9:30:00 AM,11/5/2022 11:57:00 AM,267,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051245--31722,-32593-2-13416-2211060025,487.99,2,11/5/2022 12:45:00 PM,11/6/2022 12:25:00 AM,820,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051035--31722,-32695-2-13416-2211052049,675.0699999999999,2,11/5/2022 10:35:00 AM,11/5/2022 8:49:00 PM,734,,United,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211051355--31722-1-13416-2211052135,516.61,1,11/5/2022 1:55:00 PM,11/5/2022 9:35:00 PM,580,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050845--31722-1-13416-2211051503,203.64,1,11/5/2022 8:45:00 AM,11/5/2022 3:03:00 PM,498,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051422--31722-0-13416-2211051655,194.64,0,11/5/2022 2:22:00 PM,11/5/2022 4:55:00 PM,273,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051721--32480,-32593-1-13416-2211052114,176.97,1,11/5/2022 5:21:00 PM,11/5/2022 9:14:00 PM,353,,British Airways,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051820--32385-1-13416-2211052314,118.6,1,11/5/2022 6:20:00 PM,11/5/2022 11:14:00 PM,414,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051315--32573-1-13416-2211051846,293.92,1,11/5/2022 1:15:00 PM,11/5/2022 6:46:00 PM,451,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050720--31722-1-13416-2211051151,471.65,1,11/5/2022 7:20:00 AM,11/5/2022 11:51:00 AM,391,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051556--31722-1-13416-2211052155,203.64,1,11/5/2022 3:56:00 PM,11/5/2022 9:55:00 PM,479,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051958--31722-1-13416-2211060936,217.19,1,11/5/2022 7:58:00 PM,11/6/2022 9:36:00 AM,998,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051600--32385-1-13416-2211052157,138.6,1,11/5/2022 4:00:00 PM,11/5/2022 9:57:00 PM,477,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051945--31939-0-13416-2211052219,158.19,0,11/5/2022 7:45:00 PM,11/5/2022 10:19:00 PM,274,,Qatar Airways,Chicago O'Hare International,Los Angeles International
+15062-2211051400--32573-0-13416-2211051639,168.39,0,11/5/2022 2:00:00 PM,11/5/2022 4:39:00 PM,279,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050500--31825-1-13416-2211051540,1522.75,1,11/5/2022 5:00:00 AM,11/5/2022 3:40:00 PM,760,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050847--32171-2-13416-2211052205,722.86,2,11/5/2022 8:47:00 AM,11/5/2022 10:05:00 PM,918,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211050740--32571-0-13416-2211051009,110.36,0,11/5/2022 7:40:00 AM,11/5/2022 10:09:00 AM,269,,ANA (All Nippon Airways),Chicago O'Hare International,Los Angeles International
+15062-2211050847--31722-1-13416-2211051409,306.56,1,11/5/2022 8:47:00 AM,11/5/2022 2:09:00 PM,442,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051602--31722,-32593-1-13416-2211060025,485.83,1,11/5/2022 4:02:00 PM,11/6/2022 12:25:00 AM,623,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050847--32171-2-13416-2211060018,640.96,2,11/5/2022 8:47:00 AM,11/6/2022 12:18:00 AM,1051,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211050655--32646,-32540-1-13416-2211051503,137.4,1,11/5/2022 6:55:00 AM,11/5/2022 3:03:00 PM,608,,Air New Zealand,Avianca,Chicago O'Hare International,Los Angeles International
+15062-2211051354--32480,-31940-1-13416-2211052037,291.35,1,11/5/2022 1:54:00 PM,11/5/2022 8:37:00 PM,523,,British Airways,Qantas,Chicago O'Hare International,Los Angeles International
+15062-2211051315--32593-1-13416-2211051850,3545.64,1,11/5/2022 1:15:00 PM,11/5/2022 6:50:00 PM,455,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051412--31722-1-13416-2211052155,518.57,1,11/5/2022 2:12:00 PM,11/5/2022 9:55:00 PM,583,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051426--31694,-32646-1-13416-2211052128,108.4,1,11/5/2022 2:26:00 PM,11/5/2022 9:28:00 PM,542,,Virgin Australia,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050607--32385-1-13416-2211051147,248.6,1,11/5/2022 6:07:00 AM,11/5/2022 11:47:00 AM,460,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211050745--31722-1-13416-2211051409,351.62,1,11/5/2022 7:45:00 AM,11/5/2022 2:09:00 PM,504,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051355--31722,-32593-1-13416-2211052344,1269.12,1,11/5/2022 1:55:00 PM,11/5/2022 11:44:00 PM,709,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051335--32573-1-13416-2211051944,177.54,1,11/5/2022 1:35:00 PM,11/5/2022 7:44:00 PM,489,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051358--32573-1-13416-2211051910,601,1,11/5/2022 1:58:00 PM,11/5/2022 7:10:00 PM,432,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050949--32385-1-13416-2211051455,368.6,1,11/5/2022 9:49:00 AM,11/5/2022 2:55:00 PM,426,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211050845--31722,-32593-2-13416-2211051850,498.34,2,11/5/2022 8:45:00 AM,11/5/2022 6:50:00 PM,725,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050700--32573-1-13416-2211051143,293.92,1,11/5/2022 7:00:00 AM,11/5/2022 11:43:00 AM,403,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051705--32593-1-13416-2211060025,1628.3100000000002,1,11/5/2022 5:05:00 PM,11/6/2022 12:25:00 AM,560,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050600--32128,-31697-1-13416-2211051338,141.61,1,11/5/2022 6:00:00 AM,11/5/2022 1:38:00 PM,578,,Korean Air,Virgin Atlantic,Chicago O'Hare International,Los Angeles International
+15062-2211051044--32531-0-13416-2211051314,186.6,0,11/5/2022 10:44:00 AM,11/5/2022 1:14:00 PM,270,,Azul Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051250--31722,-32593-2-13416-2211052028,448.93,2,11/5/2022 12:50:00 PM,11/5/2022 8:28:00 PM,578,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051750--31722-1-13416-2211052155,117.64,1,11/5/2022 5:50:00 PM,11/5/2022 9:55:00 PM,365,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050600--32171-1-13416-2211051304,1411.3600000000001,1,11/5/2022 6:00:00 AM,11/5/2022 1:04:00 PM,544,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211051945--32573-0-13416-2211052219,168.39,0,11/5/2022 7:45:00 PM,11/5/2022 10:19:00 PM,274,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051543--32171-1-13416-2211060013,1173.32,1,11/5/2022 3:43:00 PM,11/6/2022 12:13:00 AM,630,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211051945--31722-1-13416-2211060907,262.25,1,11/5/2022 7:45:00 PM,11/6/2022 9:07:00 AM,982,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051110--32573-1-13416-2211051540,293.92,1,11/5/2022 11:10:00 AM,11/5/2022 3:40:00 PM,390,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050952--32626-0-13416-2211051231,158.19,0,11/5/2022 9:52:00 AM,11/5/2022 12:31:00 PM,279,,Air Tahiti Nui,Chicago O'Hare International,Los Angeles International
+15062-2211051035--31722,-32695-1-13416-2211051923,984.23,1,11/5/2022 10:35:00 AM,11/5/2022 7:23:00 PM,648,,United,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211050850--31722-1-13416-2211051306,203.64,1,11/5/2022 8:50:00 AM,11/5/2022 1:06:00 PM,376,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051036--32646,-32090-1-13416-2211051743,291.44,1,11/5/2022 10:36:00 AM,11/5/2022 5:43:00 PM,547,,Air New Zealand,Lufthansa,Chicago O'Hare International,Los Angeles International
+15062-2211051100--31722,-32593-2-13416-2211052344,405.36,2,11/5/2022 11:00:00 AM,11/5/2022 11:44:00 PM,884,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051313--32080-0-13416-2211051555,158.19,0,11/5/2022 1:13:00 PM,11/5/2022 3:55:00 PM,282,,Malaysia Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050847--32540,-32646-1-13416-2211051409,311.76,1,11/5/2022 8:47:00 AM,11/5/2022 2:09:00 PM,442,,Avianca,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050845--32695,-32090-1-13416-2211051743,292.36,1,11/5/2022 8:45:00 AM,11/5/2022 5:43:00 PM,658,,Air Canada,Lufthansa,Chicago O'Hare International,Los Angeles International
+15062-2211050740--31722-0-13416-2211051009,108.64,0,11/5/2022 7:40:00 AM,11/5/2022 10:09:00 AM,269,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051739--32385-1-13416-2211060020,118.6,1,11/5/2022 5:39:00 PM,11/6/2022 12:20:00 AM,521,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051545--31722-1-13416-2211052128,117.64,1,11/5/2022 3:45:00 PM,11/5/2022 9:28:00 PM,463,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051000--32184,-32626-1-13416-2211051719,162.8,1,11/5/2022 10:00:00 AM,11/5/2022 5:19:00 PM,559,,Japan Airlines,Air Tahiti Nui,Chicago O'Hare International,Los Angeles International
+15062-2211050819--32573-0-13416-2211051049,168.39,0,11/5/2022 8:19:00 AM,11/5/2022 10:49:00 AM,270,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051250--32385-1-13416-2211052030,118.6,1,11/5/2022 12:50:00 PM,11/5/2022 8:30:00 PM,580,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051730--32385-1-13416-2211052317,118.6,1,11/5/2022 5:30:00 PM,11/5/2022 11:17:00 PM,467,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051315--32593-2-13416-2211052110,1294.3600000000001,2,11/5/2022 1:15:00 PM,11/5/2022 9:10:00 PM,595,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051000--32573-1-13416-2211051518,207.55,1,11/5/2022 10:00:00 AM,11/5/2022 3:18:00 PM,438,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051426--31722-1-13416-2211052018,117.64,1,11/5/2022 2:26:00 PM,11/5/2022 8:18:00 PM,472,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050928--31722,-32593-1-13416-2211051354,1105.79,1,11/5/2022 9:28:00 AM,11/5/2022 1:54:00 PM,386,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050817--32573-1-13416-2211051252,293.92,1,11/5/2022 8:17:00 AM,11/5/2022 12:52:00 PM,395,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050715--32695,-32646-1-13416-2211051501,220.72,1,11/5/2022 7:15:00 AM,11/5/2022 3:01:00 PM,586,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050500--32573-1-13416-2211051020,207.55,1,11/5/2022 5:00:00 AM,11/5/2022 10:20:00 AM,440,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050703--32573-1-13416-2211051152,293.92,1,11/5/2022 7:03:00 AM,11/5/2022 11:52:00 AM,409,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050720--32695,-32646-1-13416-2211051151,478.93,1,11/5/2022 7:20:00 AM,11/5/2022 11:51:00 AM,391,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051716--32480,-32456-1-13416-2211052132,206.87,1,11/5/2022 5:16:00 PM,11/5/2022 9:32:00 PM,376,,British Airways,Cathay Pacific,Chicago O'Hare International,Los Angeles International
+15062-2211050847--31722,-32593-2-13416-2211051547,1335.51,2,11/5/2022 8:47:00 AM,11/5/2022 3:47:00 PM,540,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211052121--31722-0-13416-2211052359,108.64,0,11/5/2022 9:21:00 PM,11/5/2022 11:59:00 PM,278,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050847--32171-1-13416-2211051821,1310.4,1,11/5/2022 8:47:00 AM,11/5/2022 6:21:00 PM,694,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211051125--31722-2-13416-2211051713,436.14,2,11/5/2022 11:25:00 AM,11/5/2022 5:13:00 PM,468,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051556--31722-1-13416-2211052338,147.65,1,11/5/2022 3:56:00 PM,11/5/2022 11:38:00 PM,582,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051247--31722,-32593-2-13416-2211052344,414.29,2,11/5/2022 12:47:00 PM,11/5/2022 11:44:00 PM,777,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050700--32480,-32184-1-13416-2211051143,292.92,1,11/5/2022 7:00:00 AM,11/5/2022 11:43:00 AM,403,,British Airways,Japan Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211052059--31825-0-13416-2211052339,753.6099999999999,0,11/5/2022 8:59:00 PM,11/5/2022 11:39:00 PM,280,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051551--32385-1-13416-2211052054,118.6,1,11/5/2022 3:51:00 PM,11/5/2022 8:54:00 PM,423,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051750--32593,-31722-1-13416-2211060009,1199.94,1,11/5/2022 5:50:00 PM,11/6/2022 12:09:00 AM,499,,Alaska Airlines,United,Chicago O'Hare International,Los Angeles International
+15062-2211050819--31940-0-13416-2211051049,167.82,0,11/5/2022 8:19:00 AM,11/5/2022 10:49:00 AM,270,,Qantas,Chicago O'Hare International,Los Angeles International
+15062-2211051250--31722-1-13416-2211051713,117.64,1,11/5/2022 12:50:00 PM,11/5/2022 5:13:00 PM,383,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051413--31722,-32695-1-13416-2211052153,1380.27,1,11/5/2022 2:13:00 PM,11/5/2022 9:53:00 PM,580,,United,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211052145--31825-1-13416-2211060708,1127.67,1,11/5/2022 9:45:00 PM,11/6/2022 7:08:00 AM,743,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050932--32573-1-13416-2211051404,293.92,1,11/5/2022 9:32:00 AM,11/5/2022 2:04:00 PM,392,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051550--31722-1-13416-2211052049,117.64,1,11/5/2022 3:50:00 PM,11/5/2022 8:49:00 PM,419,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051324--31722-1-13416-2211051746,911.65,1,11/5/2022 1:24:00 PM,11/5/2022 5:46:00 PM,382,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051808--32571,-32646-1-13416-2211052338,88.96,1,11/5/2022 6:08:00 PM,11/5/2022 11:38:00 PM,450,,ANA (All Nippon Airways),Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051945--32480-0-13416-2211052219,167.82,0,11/5/2022 7:45:00 PM,11/5/2022 10:19:00 PM,274,,British Airways,Chicago O'Hare International,Los Angeles International
+15062-2211051945--31799,-32646-1-13416-2211060907,266.15,1,11/5/2022 7:45:00 PM,11/6/2022 9:07:00 AM,982,,SWISS,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211050655--32646-1-13416-2211051226,150.61,1,11/5/2022 6:55:00 AM,11/5/2022 12:26:00 PM,451,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051250--32695,-32571-1-13416-2211052049,178.96,1,11/5/2022 12:50:00 PM,11/5/2022 8:49:00 PM,599,,Air Canada,ANA (All Nippon Airways),Chicago O'Hare International,Los Angeles International
+15062-2211050730--32385-1-13416-2211051228,288.6,1,11/5/2022 7:30:00 AM,11/5/2022 12:28:00 PM,418,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051359--31722-1-13416-2211052246,286.55,1,11/5/2022 1:59:00 PM,11/5/2022 10:46:00 PM,647,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050655--31722,-32593-1-13416-2211051355,2277.85,1,11/5/2022 6:55:00 AM,11/5/2022 1:55:00 PM,540,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051750--32695,-32407-1-13416-2211052155,88.96,1,11/5/2022 5:50:00 PM,11/5/2022 9:55:00 PM,365,,Air Canada,Copa,Chicago O'Hare International,Los Angeles International
+15062-2211051750--31799,-32571-1-13416-2211052155,119.51,1,11/5/2022 5:50:00 PM,11/5/2022 9:55:00 PM,365,,SWISS,ANA (All Nippon Airways),Chicago O'Hare International,Los Angeles International
+15062-2211051025--32385-1-13416-2211051647,368.6,1,11/5/2022 10:25:00 AM,11/5/2022 4:47:00 PM,502,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051556--32646-1-13416-2211052338,137.4,1,11/5/2022 3:56:00 PM,11/5/2022 11:38:00 PM,582,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051246--31722-1-13416-2211052013,286.55,1,11/5/2022 12:46:00 PM,11/5/2022 8:13:00 PM,567,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050715--32695,-32540-1-13416-2211051148,438.28,1,11/5/2022 7:15:00 AM,11/5/2022 11:48:00 AM,393,,Air Canada,Avianca,Chicago O'Hare International,Los Angeles International
+15062-2211050955--32573-1-13416-2211051540,343.13,1,11/5/2022 9:55:00 AM,11/5/2022 3:40:00 PM,465,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050601--31722-1-13416-2211051330,351.62,1,11/5/2022 6:01:00 AM,11/5/2022 1:30:00 PM,569,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050745--32571,-32646-1-13416-2211051409,357.09,1,11/5/2022 7:45:00 AM,11/5/2022 2:09:00 PM,504,,ANA (All Nippon Airways),Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051515--32480-0-13416-2211051742,326.01,0,11/5/2022 3:15:00 PM,11/5/2022 5:42:00 PM,267,,British Airways,Chicago O'Hare International,Los Angeles International
+15062-2211051106--31697,-32132-1-13416-2211052055,250.74,1,11/5/2022 11:06:00 AM,11/5/2022 8:55:00 PM,709,,Virgin Atlantic,KLM,Chicago O'Hare International,Los Angeles International
+15062-2211050640--32184-0-13416-2211050906,167.82,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,,Japan Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050540--32385-1-13416-2211051145,288.6,1,11/5/2022 5:40:00 AM,11/5/2022 11:45:00 AM,485,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051721--32573-1-13416-2211052114,177.54,1,11/5/2022 5:21:00 PM,11/5/2022 9:14:00 PM,353,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051545--32573-1-13416-2211051944,177.54,1,11/5/2022 3:45:00 PM,11/5/2022 7:44:00 PM,359,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051426--31722,-32593-1-13416-2211052028,2341.73,1,11/5/2022 2:26:00 PM,11/5/2022 8:28:00 PM,482,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051930--31825-0-13416-2211052207,753.6099999999999,0,11/5/2022 7:30:00 PM,11/5/2022 10:07:00 PM,277,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050856--31722,-32593-1-13416-2211051843,1307.63,1,11/5/2022 8:56:00 AM,11/5/2022 6:43:00 PM,707,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050740--31694-0-13416-2211051009,105.26,0,11/5/2022 7:40:00 AM,11/5/2022 10:09:00 AM,269,,Virgin Australia,Chicago O'Hare International,Los Angeles International
+15062-2211050715--31722-1-13416-2211051133,203.64,1,11/5/2022 7:15:00 AM,11/5/2022 11:33:00 AM,378,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051105--31825-1-13416-2211051753,1112.02,1,11/5/2022 11:05:00 AM,11/5/2022 5:53:00 PM,528,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051808--31722-1-13416-2211052338,117.64,1,11/5/2022 6:08:00 PM,11/5/2022 11:38:00 PM,450,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051425--32593-1-13416-2211052110,3367.71,1,11/5/2022 2:25:00 PM,11/5/2022 9:10:00 PM,525,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050710--32128,-32733-1-13416-2211051455,373.11,1,11/5/2022 7:10:00 AM,11/5/2022 2:55:00 PM,585,,Korean Air,Aeromexico,Chicago O'Hare International,Los Angeles International
+15062-2211051305--31722,-32593-2-13416-2211052344,851.38,2,11/5/2022 1:05:00 PM,11/5/2022 11:44:00 PM,759,,United,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051100--31722-1-13416-2211052001,286.55,1,11/5/2022 11:00:00 AM,11/5/2022 8:01:00 PM,661,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051313--32480-0-13416-2211051555,167.82,0,11/5/2022 1:13:00 PM,11/5/2022 3:55:00 PM,282,,British Airways,Chicago O'Hare International,Los Angeles International
+15062-2211051305--31722-1-13416-2211052001,286.55,1,11/5/2022 1:05:00 PM,11/5/2022 8:01:00 PM,536,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051245--32646-1-13416-2211051833,108.4,1,11/5/2022 12:45:00 PM,11/5/2022 6:33:00 PM,468,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051650--32573-1-13416-2211052200,177.54,1,11/5/2022 4:50:00 PM,11/5/2022 10:00:00 PM,430,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050600--32128-1-13416-2211051626,219.65,1,11/5/2022 6:00:00 AM,11/5/2022 4:26:00 PM,746,,Korean Air,Chicago O'Hare International,Los Angeles International
+15062-2211051430--32385-1-13416-2211052229,209.6,1,11/5/2022 2:30:00 PM,11/5/2022 10:29:00 PM,599,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211050952--32573-0-13416-2211051231,168.39,0,11/5/2022 9:52:00 AM,11/5/2022 12:31:00 PM,279,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050710--32385-1-13416-2211051455,368.6,1,11/5/2022 7:10:00 AM,11/5/2022 2:55:00 PM,585,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051230--31829-1-13416-2211051615,135.6,1,11/5/2022 12:30:00 PM,11/5/2022 4:15:00 PM,345,,Southwest Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051422--32695-0-13416-2211051655,197.56,0,11/5/2022 2:22:00 PM,11/5/2022 4:55:00 PM,273,,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211050822--31825-0-13416-2211051055,2023.28,0,11/5/2022 8:22:00 AM,11/5/2022 10:55:00 AM,273,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051402--31722-1-13416-2211052246,286.55,1,11/5/2022 2:02:00 PM,11/5/2022 10:46:00 PM,644,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051049--31722-1-13416-2211051852,286.55,1,11/5/2022 10:49:00 AM,11/5/2022 6:52:00 PM,603,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051515--32573-0-13416-2211051742,168.39,0,11/5/2022 3:15:00 PM,11/5/2022 5:42:00 PM,267,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051036--31722-1-13416-2211052018,242.24,1,11/5/2022 10:36:00 AM,11/5/2022 8:18:00 PM,702,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051303--32090,-32571-1-13416-2211051725,469.38,1,11/5/2022 1:03:00 PM,11/5/2022 5:25:00 PM,382,,Lufthansa,ANA (All Nippon Airways),Chicago O'Hare International,Los Angeles International
+15062-2211050930--32695-0-13416-2211051157,276.15,0,11/5/2022 9:30:00 AM,11/5/2022 11:57:00 AM,267,,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211050640--32753-0-13416-2211050906,158.19,0,11/5/2022 6:40:00 AM,11/5/2022 9:06:00 AM,266,,Aer Lingus,Chicago O'Hare International,Los Angeles International
+15062-2211051808--31901-0-13416-2211052048,134.69,0,11/5/2022 6:08:00 PM,11/5/2022 8:48:00 PM,280,,Scandinavian Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051750--32593-1-13416-2211060730,900.9100000000001,1,11/5/2022 5:50:00 PM,11/6/2022 7:30:00 AM,1000,,Alaska Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051957--32646-0-13416-2211052233,105.3,0,11/5/2022 7:57:00 PM,11/5/2022 10:33:00 PM,276,,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051205--31940,-32626-1-13416-2211051719,162.8,1,11/5/2022 12:05:00 PM,11/5/2022 5:19:00 PM,434,,Qantas,Air Tahiti Nui,Chicago O'Hare International,Los Angeles International
+15062-2211050607--32385-1-13416-2211051315,209.6,1,11/5/2022 6:07:00 AM,11/5/2022 1:15:00 PM,548,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051425--31722-1-13416-2211051914,117.64,1,11/5/2022 2:25:00 PM,11/5/2022 7:14:00 PM,409,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050847--32171-1-13416-2211052046,955.32,1,11/5/2022 8:47:00 AM,11/5/2022 8:46:00 PM,839,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211051413--32385-1-13416-2211052033,118.6,1,11/5/2022 2:13:00 PM,11/5/2022 8:33:00 PM,500,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051808--32093-0-13416-2211052048,141.46,0,11/5/2022 6:08:00 PM,11/5/2022 8:48:00 PM,280,,LOT,Chicago O'Hare International,Los Angeles International
+15062-2211050935--32184,-31940-1-13416-2211051715,316.5,1,11/5/2022 9:35:00 AM,11/5/2022 5:15:00 PM,580,,Japan Airlines,Qantas,Chicago O'Hare International,Los Angeles International
+15062-2211051430--32677,-31697-1-13416-2211051950,503.65,1,11/5/2022 2:30:00 PM,11/5/2022 7:50:00 PM,440,,Air France,Virgin Atlantic,Chicago O'Hare International,Los Angeles International
+15062-2211050928--31722-1-13416-2211051746,917.25,1,11/5/2022 9:28:00 AM,11/5/2022 5:46:00 PM,618,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050850--32695-1-13416-2211051306,206.71,1,11/5/2022 8:50:00 AM,11/5/2022 1:06:00 PM,376,,Air Canada,Chicago O'Hare International,Los Angeles International
+15062-2211050600--32385-1-13416-2211051338,138.6,1,11/5/2022 6:00:00 AM,11/5/2022 1:38:00 PM,578,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051106--31697-1-13416-2211051916,292.37,1,11/5/2022 11:06:00 AM,11/5/2022 7:16:00 PM,610,,Virgin Atlantic,Chicago O'Hare International,Los Angeles International
+15062-2211050955--32184,-32480-1-13416-2211051540,341.95,1,11/5/2022 9:55:00 AM,11/5/2022 3:40:00 PM,465,,Japan Airlines,British Airways,Chicago O'Hare International,Los Angeles International
+15062-2211050600--32171-2-13416-2211051530,1226.6599999999999,2,11/5/2022 6:00:00 AM,11/5/2022 3:30:00 PM,690,,jetBlue,Chicago O'Hare International,Los Angeles International
+15062-2211051430--32385-1-13416-2211051950,498.6,1,11/5/2022 2:30:00 PM,11/5/2022 7:50:00 PM,440,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051800--31722-1-13416-2211060009,117.64,1,11/5/2022 6:00:00 PM,11/6/2022 12:09:00 AM,489,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051650--32480,-32080-1-13416-2211052200,162.8,1,11/5/2022 4:50:00 PM,11/5/2022 10:00:00 PM,430,,British Airways,Malaysia Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050830--32573-1-13416-2211051420,177.54,1,11/5/2022 8:30:00 AM,11/5/2022 2:20:00 PM,470,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051716--32573-1-13416-2211052132,207.55,1,11/5/2022 5:16:00 PM,11/5/2022 9:32:00 PM,376,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051320--32573-1-13416-2211051822,177.54,1,11/5/2022 1:20:00 PM,11/5/2022 6:22:00 PM,422,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050600--31829-1-13416-2211051100,150.3,1,11/5/2022 6:00:00 AM,11/5/2022 11:00:00 AM,420,,Southwest Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051225--31825-1-13416-2211052238,1115.3700000000001,1,11/5/2022 12:25:00 PM,11/5/2022 10:38:00 PM,733,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051422--31694-0-13416-2211051655,186.6,0,11/5/2022 2:22:00 PM,11/5/2022 4:55:00 PM,273,,Virgin Australia,Chicago O'Hare International,Los Angeles International
+15062-2211051300--32573-1-13416-2211051715,207.55,1,11/5/2022 1:00:00 PM,11/5/2022 5:15:00 PM,375,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051545--32090-0-13416-2211051812,384.15999999999997,0,11/5/2022 3:45:00 PM,11/5/2022 6:12:00 PM,267,,Lufthansa,Chicago O'Hare International,Los Angeles International
+15062-2211051425--32695,-32646-1-13416-2211051914,88.96,1,11/5/2022 2:25:00 PM,11/5/2022 7:14:00 PM,409,,Air Canada,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051209--31825-1-13416-2211051936,927.25,1,11/5/2022 12:09:00 PM,11/5/2022 7:36:00 PM,567,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050949--32385-1-13416-2211051749,168.6,1,11/5/2022 9:49:00 AM,11/5/2022 5:49:00 PM,600,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051036--31722-1-13416-2211051743,286.55,1,11/5/2022 10:36:00 AM,11/5/2022 5:43:00 PM,547,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050805--32573-1-13416-2211051311,207.55,1,11/5/2022 8:05:00 AM,11/5/2022 1:11:00 PM,426,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050907--31722-2-13416-2211051713,436.14,2,11/5/2022 9:07:00 AM,11/5/2022 5:13:00 PM,606,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051250--32695,-31694-1-13416-2211051713,108.4,1,11/5/2022 12:50:00 PM,11/5/2022 5:13:00 PM,383,,Air Canada,Virgin Australia,Chicago O'Hare International,Los Angeles International
+15062-2211050730--32385-1-13416-2211051530,248.6,1,11/5/2022 7:30:00 AM,11/5/2022 3:30:00 PM,600,,Delta,Chicago O'Hare International,Los Angeles International
+15062-2211051545--32090,-32646-1-13416-2211060009,245.82,1,11/5/2022 3:45:00 PM,11/6/2022 12:09:00 AM,624,,Lufthansa,Air New Zealand,Chicago O'Hare International,Los Angeles International
+15062-2211051044--31722-0-13416-2211051314,194.64,0,11/5/2022 10:44:00 AM,11/5/2022 1:14:00 PM,270,,United,Chicago O'Hare International,Los Angeles International
+15062-2211052121--31694-0-13416-2211052359,105.26,0,11/5/2022 9:21:00 PM,11/5/2022 11:59:00 PM,278,,Virgin Australia,Chicago O'Hare International,Los Angeles International
+15062-2211051545--31722-0-13416-2211051812,194.64,0,11/5/2022 3:45:00 PM,11/5/2022 6:12:00 PM,267,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050925--31722-1-13416-2211051518,450.61,1,11/5/2022 9:25:00 AM,11/5/2022 3:18:00 PM,473,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050530--31825-1-13416-2211051413,1115.3700000000001,1,11/5/2022 5:30:00 AM,11/5/2022 2:13:00 PM,643,,Spirit Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211051512--32573-1-13416-2211052021,293.92,1,11/5/2022 3:12:00 PM,11/5/2022 8:21:00 PM,429,,American Airlines,Chicago O'Hare International,Los Angeles International
+15062-2211050655--31722-1-13416-2211051226,147.65,1,11/5/2022 6:55:00 AM,11/5/2022 12:26:00 PM,451,,United,Chicago O'Hare International,Los Angeles International
+15062-2211051035--31722-1-13416-2211051501,203.64,1,11/5/2022 10:35:00 AM,11/5/2022 3:01:00 PM,386,,United,Chicago O'Hare International,Los Angeles International
+15062-2211050655--32646,-31694-1-13416-2211051226,137.4,1,11/5/2022 6:55:00 AM,11/5/2022 12:26:00 PM,451,,Air New Zealand,Virgin Australia,Chicago O'Hare International,Los Angeles International
