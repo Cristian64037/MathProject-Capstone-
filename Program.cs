@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using CsvHelper;
 using System.Globalization;
+using System.Threading;
 
 namespace MathProject_Capstone_
 {
@@ -18,9 +19,9 @@ namespace MathProject_Capstone_
         static async Task Main(string[] args)
         {
             //DateTime today= new DateTime();
-            System.Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
+            //System.Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
             
-            System.Console.WriteLine(DateTime.Now.AddDays(1).ToString("MM/dd/yyyy"));
+            //System.Console.WriteLine(DateTime.Now.AddDays(1).ToString("MM/dd/yyyy"));
             List<Itineraries> listOfFights= new List<Itineraries>();
             ApiKeys apiKeys= new ApiKeys();
             string fileName="/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded.txt";
@@ -31,11 +32,44 @@ namespace MathProject_Capstone_
             string beginnerdata="FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity";
             csvFlights.Add(beginnerdata);
             await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
-        
+            Thread.Sleep(60000);
+           // await makeApiCallsAsync2(flightInformation,apiKeys,listOfFights);
             appendNewFlights(csvFlights,listOfFights);
             writeOutToCSV(csvFlights);
         
         
+        }
+
+        private static async Task makeApiCallsAsync2(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
+        {
+            foreach (FlightInformation flight in flightInformation)
+            {
+                
+                string url=String.Format("https://skyscanner44.p.rapidapi.com/search-extended?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.arrivalCity,flight.departureCity,flight.date);
+                
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+            {
+	            Method = HttpMethod.Get,
+	            RequestUri = new Uri(url),
+	            Headers =
+	            {
+		            { "X-RapidAPI-Key", apiKeys.key.ToString() },
+		            { "X-RapidAPI-Host", apiKeys.Host.ToString() },
+	            },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+	            response.EnsureSuccessStatusCode();
+	            string body =  response.Content.ReadAsStringAsync().Result;
+                TravvelData travInfo = JsonConvert.DeserializeObject<TravvelData>(body.ToString()); 
+                //System.Console.WriteLine("hi:{0}",travInfo); 
+                listOfFights.Add(travInfo.itineraries);
+               //System.Console.WriteLine("Number of results:{0}", travInfo.itineraries.results);
+                //System.Console.WriteLine(body);
+            
+            }
+            }
         }
 
         private static async Task makeApiCallsAsync(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
@@ -83,7 +117,7 @@ namespace MathProject_Capstone_
 
         private static void writeOutToCSV(List<string> csvFlights)
         {
-            TextWriter tw = new StreamWriter("SavedFlights8.csv");
+            TextWriter tw = new StreamWriter("SavedFlights1.csv");
             foreach (String s in csvFlights)
             {
                 tw.WriteLine(s.ToString());
