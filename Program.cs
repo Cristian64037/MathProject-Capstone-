@@ -18,59 +18,64 @@ namespace MathProject_Capstone_
         
         static async Task Main(string[] args)
         {
-            //DateTime today= new DateTime();
-            //System.Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
-            
-            //System.Console.WriteLine(DateTime.Now.AddDays(1).ToString("MM/dd/yyyy"));
-            List<Itineraries> listOfFights= new List<Itineraries>();
-            ApiKeys apiKeys= new ApiKeys();
-            string fileName="/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded.txt";
-            FileIO fileIO= new FileIO(fileName);
-            string[] data=fileIO.readDataInToStringList();
-            List<FlightInformation> flightInformation=storeTheData(data);
-            List<string> csvFlights=new List<string>();
-            string beginnerdata="FlightId,Price,StopCount,Departue,Arrival,FlightTime,Airline(s),DepartureCity,ArrivalCity";
-            csvFlights.Add(beginnerdata);
-            await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
-            Thread.Sleep(60000);
-           // await makeApiCallsAsync2(flightInformation,apiKeys,listOfFights);
-            appendNewFlights(csvFlights,listOfFights);
-            writeOutToCSV(csvFlights);
+            List<string> fileNames= new List<string>();
+            //fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightNeeded2.txt");
+            //fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded.txt");
+            //fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded3.txt");
+           // fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded4.txt");
+            fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded5.txt");
+            fileNames.Add("/Users/cristian/MTH4990/MathProject-Capstone-/flightsNeeded6.txt");
+            for (int i = 0; i < fileNames.Count; i++)
+            {
+                List<Itineraries> listOfFights= new List<Itineraries>();
+                ApiKeys apiKeys= new ApiKeys();
+                string fileName=fileNames[i];
+                FileIO fileIO= new FileIO(fileName);
+                string[] data=fileIO.readDataInToStringList();
+                List<FlightInformation> flightInformation=storeTheData(data);
+                List<string> csvFlights=new List<string>();
+                await makeApiCallsAsync(flightInformation,apiKeys,listOfFights);
+                appendNewFlights(csvFlights,listOfFights);
+                writeOutToCSV(csvFlights);
+                System.Console.WriteLine("Done with file:{0}",i+1);
+                Thread.Sleep(60000);
+                
+            }
         
         
         }
 
-        private static async Task makeApiCallsAsync2(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
-        {
-            foreach (FlightInformation flight in flightInformation)
-            {
+        // private static async Task makeApiCallsAsync2(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
+        // {
+        //     foreach (FlightInformation flight in flightInformation)
+        //     {
                 
-                string url=String.Format("https://skyscanner44.p.rapidapi.com/search-extended?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.arrivalCity,flight.departureCity,flight.date);
+        //         string url=String.Format("https://skyscanner44.p.rapidapi.com/search-extended?adults=1&origin={0}&destination={1}&departureDate={2}&currency=USD",flight.arrivalCity,flight.departureCity,flight.date);
                 
-                var client = new HttpClient();
-                var request = new HttpRequestMessage
-            {
-	            Method = HttpMethod.Get,
-	            RequestUri = new Uri(url),
-	            Headers =
-	            {
-		            { "X-RapidAPI-Key", apiKeys.key.ToString() },
-		            { "X-RapidAPI-Host", apiKeys.Host.ToString() },
-	            },
-            };
-            using (var response = await client.SendAsync(request))
-            {
-	            response.EnsureSuccessStatusCode();
-	            string body =  response.Content.ReadAsStringAsync().Result;
-                TravvelData travInfo = JsonConvert.DeserializeObject<TravvelData>(body.ToString()); 
-                //System.Console.WriteLine("hi:{0}",travInfo); 
-                listOfFights.Add(travInfo.itineraries);
-               //System.Console.WriteLine("Number of results:{0}", travInfo.itineraries.results);
-                //System.Console.WriteLine(body);
+        //         var client = new HttpClient();
+        //         var request = new HttpRequestMessage
+        //     {
+	    //         Method = HttpMethod.Get,
+	    //         RequestUri = new Uri(url),
+	    //         Headers =
+	    //         {
+		//             { "X-RapidAPI-Key", apiKeys.key.ToString() },
+		//             { "X-RapidAPI-Host", apiKeys.Host.ToString() },
+	    //         },
+        //     };
+        //     using (var response = await client.SendAsync(request))
+        //     {
+	    //         response.EnsureSuccessStatusCode();
+	    //         string body =  response.Content.ReadAsStringAsync().Result;
+        //         TravvelData travInfo = JsonConvert.DeserializeObject<TravvelData>(body.ToString()); 
+        //         //System.Console.WriteLine("hi:{0}",travInfo); 
+        //         listOfFights.Add(travInfo.itineraries);
+        //        //System.Console.WriteLine("Number of results:{0}", travInfo.itineraries.results);
+        //         //System.Console.WriteLine(body);
             
-            }
-            }
-        }
+        //     }
+        //     }
+        // }
 
         private static async Task makeApiCallsAsync(List<FlightInformation> flightInformation, ApiKeys apiKeys, List<Itineraries> listOfFights)
         {
@@ -95,11 +100,7 @@ namespace MathProject_Capstone_
 	            response.EnsureSuccessStatusCode();
 	            string body =  response.Content.ReadAsStringAsync().Result;
                 TravvelData travInfo = JsonConvert.DeserializeObject<TravvelData>(body.ToString()); 
-                //System.Console.WriteLine("hi:{0}",travInfo); 
-                listOfFights.Add(travInfo.itineraries);
-               //System.Console.WriteLine("Number of results:{0}", travInfo.itineraries.results);
-                //System.Console.WriteLine(body);
-            
+                listOfFights.Add(travInfo.itineraries);            
             }
             }
         }
@@ -107,6 +108,7 @@ namespace MathProject_Capstone_
         private static List<FlightInformation> storeTheData(string[] data)
         {
             List<FlightInformation> flightInformation= new List<FlightInformation>();
+
             foreach (string item in data)
             {
                 string[]toks=item.Split(",");
@@ -117,12 +119,18 @@ namespace MathProject_Capstone_
 
         private static void writeOutToCSV(List<string> csvFlights)
         {
-            TextWriter tw = new StreamWriter("SavedFlights1.csv");
-            foreach (String s in csvFlights)
+            using (FileStream fs = new FileStream("SavedFlightsAll.csv",FileMode.Append, FileAccess.Write))
             {
-                tw.WriteLine(s.ToString());
+            using (StreamWriter sw = new StreamWriter(fs))
+            {
+                foreach (String s in csvFlights)
+            {
+                sw.WriteLine(s.ToString());
             }
-            tw.Close();
+            //sw.Close();
+            }
+            }
+        
         }
 
         private static void appendNewFlights(List<string> csvFlights, List<Itineraries> listOfFights)
@@ -132,10 +140,6 @@ namespace MathProject_Capstone_
             
             foreach (Itineraries itineary in listOfFights)
             {
-                //System.Console.WriteLine("Hello:{0}",itineary);
-                //System.Console.WriteLine();
-                //System.Console.WriteLine("Number of ititnearies is:{0}",itineary.results.Count);
-                
                 
                 foreach (Result flight in itineary.results)
             {
@@ -155,6 +159,7 @@ namespace MathProject_Capstone_
                     //FlightId   ,Price  ,StopCount  ,Departue  ,Arrival  ,FlightTime  ,Airline(s)  ,DepartureCity,ArrivalCity
                     string stopCount=infomation.stopCount.ToString();
                     string departureDate=infomation.departure.ToString();
+                    //var daysInDifference= infomation.departure-DateTime.Now;
                     string arrivalDate=infomation.arrival.ToString();
                     string flightTime=infomation.durationInMinutes.ToString();
                     string airlineNames="";
@@ -168,7 +173,7 @@ namespace MathProject_Capstone_
                     }
                     string origin=infomation.origin.name.ToString();
                     string destination=infomation.destination.name.ToString();
-                    string[] flightValue=new string[]{flightId,priceCost.ToString(),stopCount,departureDate,arrivalDate,flightTime,airlineNames,origin,destination};
+                    string[] flightValue=new string[]{flightId,priceCost.ToString(),stopCount,departureDate,arrivalDate,flightTime,airlineNames,origin,destination,DateTime.Now.ToString("MM/dd/yyyy")};
                     string csvString= string.Join(",",flightValue); 
                     //System.Console.WriteLine("\n{0}",csvString);
                     csvFlights.Add(csvString); 
